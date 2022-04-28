@@ -23,6 +23,8 @@
 21 golden pickaxe (tool to mine ores and stone has durability)
 22 iron pickaxe (tool to mine ores and stone has durability)
 23 diamond pickaxe (tool to mine ores and stone has durability)
+24 apple
 
 (meals can be added if user do not eat he can die after a while maybe)
 (mobs can be added)
+(can it be used merkle tree???)
