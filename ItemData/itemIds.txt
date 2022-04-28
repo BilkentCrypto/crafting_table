@@ -1,0 +1,28 @@
+0 Crafting Table (for 3x3 craftings) - tool
+1 Log (improducible)
+2 Wooden Plank
+3 Stick
+4 Torch
+5 Furnace (Furnace will be used as a tool with timestamp) - tool
+(can be added different times to each element)
+6 Chest (Storing to extra NFT's) - tool
+7 Sand - improducible
+8 Glass
+9 Sign (not sure but it can be created custom NFTs)
+10 coal
+11 golden apple
+12 iron ore - mined with pickaxe
+13 stone - mined with pickaxe
+14 gold ore - mined with iron(?) pickaxe
+15 diamond - mined with iron pickaxe
+16 iron
+17 gold
+18 emerald
+19 wooden pickaxe (tool to mine ores and stone has durability)
+20 stone pickaxe (tool to mine ores and stone has durability)
+21 golden pickaxe (tool to mine ores and stone has durability)
+22 iron pickaxe (tool to mine ores and stone has durability)
+23 diamond pickaxe (tool to mine ores and stone has durability)
+
+(meals can be added if user do not eat he can die after a while maybe)
+(mobs can be added)
