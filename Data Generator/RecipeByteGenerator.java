@@ -24,6 +24,8 @@ public class RecipeByteGenerator {
         String bytesString = "";
         Scanner input = new Scanner( System.in );
 
+        System.out.println( convertToBits(5, 7) );
+
         while( input.hasNext() ) {
             String bits = "";
             String current = input.next();

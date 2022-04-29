@@ -1,4 +1,4 @@
-package Data Generator;
+
 
 public class Test2 {
 
