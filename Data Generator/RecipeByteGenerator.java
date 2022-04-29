@@ -63,11 +63,11 @@ public class RecipeByteGenerator {
         String currentText;
         for( index = 0; index < mergeNumber - 1; index++) {
             currentText = text.substring(index * mergeEach, (index + 1) * mergeEach );
-            texts[index] = currentText;
+            texts[index] = "0x" + currentText;
         }
 
         currentText = text.substring(index * mergeEach);
-        texts[index] = fillWithZeros( currentText, mergeEach, Direction.RIGHT);
+        texts[index] = "0x" + fillWithZeros( currentText, mergeEach, Direction.RIGHT);
 
         return texts;
     }
@@ -78,7 +78,7 @@ public class RecipeByteGenerator {
         System.out.println("Started...");
         File textFile = new File( TEXT_FILE_NAME );
         Scanner input = new Scanner( textFile );
-        String hexCode = "0x";
+        String hexCode = "";
 
         while( input.hasNext() ) {
             String bits = "";
