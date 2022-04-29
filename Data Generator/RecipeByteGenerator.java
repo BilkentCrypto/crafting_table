@@ -44,29 +44,44 @@ public class RecipeByteGenerator {
         for( int i = 0; i < 8; i++ ) {
             String currentPart = bits.substring(i * 4, i * 4 + 4);
             int decimal = 0;
-            bits = bits.substring( i * 4 + 4 );
-
+            int index = 0;
             for( int k = 8; k != 0; k /= 2) {
-                if( bits.charAt( 0 ) == '1' ) {
+                if( currentPart.charAt( index ) == '1' ) {
                     decimal += k;
                 }
+                index++;
             }
             hexCode += convertDecimalToHex( decimal );
-
         }
         return hexCode;
     }
+
+    public static String[] mergeTextParts( String text, int mergeEach ) {
+        int mergeNumber = text.length() / mergeEach + 1;
+        String[] texts = new String[ mergeNumber ];
+        int index;
+        String currentText;
+        for( index = 0; index < mergeNumber - 1; index++) {
+            currentText = text.substring(index * mergeEach, (index + 1) * mergeEach );
+            texts[index] = currentText;
+        }
+
+        currentText = text.substring(index * mergeEach);
+        texts[index] = fillWithZeros( currentText, mergeEach, Direction.RIGHT);
+
+        return texts;
+    }
     public static void main( String[] args ) throws FileNotFoundException {
         String bytesString = "";
+        final int MERGE_EACH = 64;
         final String TEXT_FILE_NAME = "Recipes.txt";
         System.out.println("Started...");
         File textFile = new File( TEXT_FILE_NAME );
         Scanner input = new Scanner( textFile );
-
+        String hexCode = "0x";
 
         while( input.hasNext() ) {
             String bits = "";
-            String hexCode = "0x";
             String current = input.next();
             if( !current.startsWith("//") ) {
                 if( current.equals( "true" ) ) { // is craftable
@@ -79,10 +94,11 @@ public class RecipeByteGenerator {
                     int itemNumber = input.nextInt();
                     bits += convertToBits( itemNumber, 2 ); // required item number
                     for( int i = 0; i < itemNumber; i++ ) {
-                        bits += convertToBits( itemNumber, 5 ); // item index
-                        bits += convertToBits( itemNumber, 3 ); // item amount
+                        bits += convertToBits( input.nextInt(), 5 ); // item index
+                        bits += convertToBits( input.nextInt(), 3 ); // item amount
                     }
                     bits = fillWithZeros( bits , 8 * 4, Direction.RIGHT);
+                    //System.out.println(bits);
                     hexCode += convertTo4BytesHex(bits);
                 }
                 else {
@@ -91,6 +107,12 @@ public class RecipeByteGenerator {
             } else {
                 input.nextLine();
             }
+        }
+        
+        String hexWithParts[] = mergeTextParts( hexCode, MERGE_EACH );
+        
+        for( int i = 0; i < hexWithParts.length; i++ ) {
+            System.out.printf("Part %d: %s\n", i + 1, hexWithParts[i] );
         }
 
     }
