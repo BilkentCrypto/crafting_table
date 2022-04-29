@@ -28,3 +28,4 @@
 (meals can be added if user do not eat he can die after a while maybe)
 (mobs can be added)
 (can it be used merkle tree???)
+(chest idea is not efficent array required to store user's NFTs)

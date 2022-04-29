@@ -1,0 +1,34 @@
+//1 bit isCraftableWith3x3 4 bits produced amount (+1) 2 bit Item object number ( 8 bits total one of them is empty)
+//3 item bytes
+//Item: 5 bits indexNo ( +1 in java -1 in solidity) 3 bits amount
+//Therefore, each index is 4 bytes
+
+//isCraftable2x2(bool) producedAmount(uint4) itemNumber(uint2) item0Index(uint5) item0Amount(uint3) item1Index(uint5) item1Amount(uint3) item2Index(uint5) item2Amount(uint3)
+//true 15 3 31 
+
+//isCraftable(bool)	isCraftable2x2(bool)	producedAmount(uint4) + 1	itemNumber(uint2)	item0Index(uint5)	item0Amount(uint3)	item1Index(uint5)	item1Amount(uint3)	item2Index(uint5)	item2Amount(uint3)
+true	true	1	1	2	4				
+false									
+true	true	4	1	1	1				
+true	true	4	1	2	2				
+true	true	4	2	10	1	3	1		
+true	false	1	1	13	8				
+true	false	1	1	2	8				
+false									
+false									
+true	false	3	2	2	6	3	1		
+false									
+true	false	1	2	24	1	17	8		
+false									
+false									
+false									
+false									
+false									
+false									
+false									
+true	false	1	2	3	2	2	3		
+true	false	1	2	3	2	13	3		
+true	false	1	2	3	2	17	3		
+true	false	1	2	3	2	16	3		
+true	false	1	2	3	2	15	3		
+false									
