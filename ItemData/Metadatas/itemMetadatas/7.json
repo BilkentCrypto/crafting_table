@@ -1,0 +1,20 @@
+{
+    "description": "It's only a sand. Maybe, you can use it. Maybe?", 
+    "external_url": "https://github.com/BilkentCrypto/crafting_table", 
+    "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/{id}.png", 
+    "name": "Sand",
+    "attributes": [
+        {
+            "trait_type": "Product Type", 
+            "value": "Genesis"
+        }, 
+        {
+          "trait_type": "Craftable", 
+          "value": "No"
+        }, 
+        {
+          "trait_type": "Crafting size", 
+          "value": "Not craftable"
+        }
+      ]
+  }

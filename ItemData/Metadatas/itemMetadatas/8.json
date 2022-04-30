@@ -1,0 +1,20 @@
+{
+  "description": "How did you created the glass? I haven't written furnace code yet. Wow!", 
+  "external_url": "https://github.com/BilkentCrypto/crafting_table", 
+  "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/{id}.png", 
+  "name": "Glass",
+  "attributes": [
+      {
+          "trait_type": "Product Type", 
+          "value": "Furnace"
+      }, 
+      {
+        "trait_type": "Craftable", 
+        "value": "No"
+      }, 
+      {
+        "trait_type": "Crafting size", 
+        "value": "Not craftable"
+      }
+    ]
+}

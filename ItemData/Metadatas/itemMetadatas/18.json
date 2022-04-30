@@ -1,0 +1,24 @@
+{
+    "description": "Yes! It is very rare. Congrulations. Do not trade with any villager because they can give only 1 bread for this emerald. Be careful!", 
+    "external_url": "https://github.com/BilkentCrypto/crafting_table", 
+    "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/{id}.png", 
+    "name": "Emerald",
+    "attributes": [
+      {
+        "trait_type": "Type", 
+        "value": "Item"
+    }, 
+        {
+            "trait_type": "Product Type", 
+            "value": "Genesis"
+        }, 
+        {
+          "trait_type": "Craftable", 
+          "value": "No"
+        }, 
+        {
+          "trait_type": "Crafting size", 
+          "value": "Not craftable"
+        }
+      ]
+  }
