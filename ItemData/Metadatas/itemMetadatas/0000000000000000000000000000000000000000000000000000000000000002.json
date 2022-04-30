@@ -1,20 +1,24 @@
 {
-    "description": "Oxygen is good. It creates oxygen. Key to crafting table.", 
+    "description": "You have killed trees. Umm... Maybe you can craft a crafting table and craft more things", 
     "external_url": "https://github.com/BilkentCrypto/crafting_table", 
     "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/{id}.png", 
-    "name": "Log",
+    "name": "Wooden Plank",
     "attributes": [
+      {
+        "trait_type": "Type", 
+        "value": "Block"
+      }, 
         {
             "trait_type": "Product Type", 
-            "value": "Genesis"
+            "value": "Middle"
         }, 
         {
           "trait_type": "Craftable", 
-          "value": "No"
+          "value": "Yes"
         }, 
         {
           "trait_type": "Crafting size", 
-          "value": "Not craftable"
+          "value": "2x2"
         }
       ]
   }

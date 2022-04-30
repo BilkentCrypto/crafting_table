@@ -1,9 +1,13 @@
 {
-    "description": "And you have controlled the fire. Now, you can cook something.", 
+    "description": "Why did you spend your golds to an apple?", 
     "external_url": "https://github.com/BilkentCrypto/crafting_table", 
     "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/{id}.png", 
-    "name": "Furnace",
+    "name": "Golden Apple",
     "attributes": [
+      {
+        "trait_type": "Type", 
+        "value": "Item"
+    }, 
         {
             "trait_type": "Product Type", 
             "value": "Final"

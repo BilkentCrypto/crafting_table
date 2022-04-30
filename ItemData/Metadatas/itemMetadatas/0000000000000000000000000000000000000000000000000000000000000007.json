@@ -4,6 +4,10 @@
     "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/{id}.png", 
     "name": "Sand",
     "attributes": [
+      {
+        "trait_type": "Type", 
+        "value": "Block"
+      }, 
         {
             "trait_type": "Product Type", 
             "value": "Genesis"

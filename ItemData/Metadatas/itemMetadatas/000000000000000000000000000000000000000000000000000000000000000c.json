@@ -1,9 +1,13 @@
 {
-    "description": "Oxygen is good. It creates oxygen. Key to crafting table.", 
+    "description": "Ore of iron. It should be processed.", 
     "external_url": "https://github.com/BilkentCrypto/crafting_table", 
     "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/{id}.png", 
-    "name": "Log",
+    "name": "Iron Ore",
     "attributes": [
+      {
+        "trait_type": "Type", 
+        "value": "Block"
+      }, 
         {
             "trait_type": "Product Type", 
             "value": "Genesis"

@@ -1,12 +1,16 @@
 {
-    "description": "You have killed trees. Umm... Maybe you can craft a crafting table and craft more things", 
+    "description": "Light is good.", 
     "external_url": "https://github.com/BilkentCrypto/crafting_table", 
     "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/{id}.png", 
-    "name": "Wooden Plank",
+    "name": "Torch",
     "attributes": [
+      {
+        "trait_type": "Type", 
+        "value": "Item"
+    }, 
         {
             "trait_type": "Product Type", 
-            "value": "Middle"
+            "value": "Final"
         }, 
         {
           "trait_type": "Craftable", 
