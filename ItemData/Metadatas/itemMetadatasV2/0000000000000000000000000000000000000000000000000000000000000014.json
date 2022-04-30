@@ -1,7 +1,7 @@
 {
   "description": "Better pickaxe. You can mine ores with that (if I code it of course).", 
   "external_url": "https://github.com/BilkentCrypto/crafting_table", 
-  "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/{id}.png", 
+  "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/0000000000000000000000000000000000000000000000000000000000000014.png",
   "name": "Stone Pickaxe",
   "attributes": [
     {
