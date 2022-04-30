@@ -1,0 +1,24 @@
+{
+    "description": "Good for tools.", 
+    "external_url": "https://github.com/BilkentCrypto/crafting_table", 
+    "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/0000000000000000000000000000000000000000000000000000000000000003.png",
+    "name": "Stick",
+    "attributes": [
+      {
+        "trait_type": "Type", 
+        "value": "Item"
+    }, 
+        {
+            "trait_type": "Product Type", 
+            "value": "Middle"
+        }, 
+        {
+          "trait_type": "Craftable", 
+          "value": "Yes"
+        }, 
+        {
+          "trait_type": "Crafting size", 
+          "value": "2x2"
+        }
+      ]
+  }

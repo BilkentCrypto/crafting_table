@@ -1,0 +1,24 @@
+{
+    "description": "It tastes good.", 
+    "external_url": "https://github.com/BilkentCrypto/crafting_table", 
+    "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/0000000000000000000000000000000000000000000000000000000000000018.png",
+    "name": "Apple",
+    "attributes": [
+      {
+        "trait_type": "Type", 
+        "value": "Item"
+    }, 
+        {
+            "trait_type": "Product Type", 
+            "value": "Genesis"
+        }, 
+        {
+          "trait_type": "Craftable", 
+          "value": "No"
+        }, 
+        {
+          "trait_type": "Crafting size", 
+          "value": "Not craftable"
+        }
+      ]
+  }

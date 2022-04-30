@@ -27,6 +27,7 @@ contract CraftingTableV2 is ERC1155, ERC1155Burnable, ERC1155Supply {
     bytes32 constant recipes3 = 0x0000000000000000000000008219120082196a0082198a008219820082197a00;
     bytes4 constant TRUE_BYTE = 0x00000001;
 
+    string constant contractURILink = "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/Contract_Metadata.json";
 
     struct Item {
         uint8 id;
@@ -42,8 +43,13 @@ contract CraftingTableV2 is ERC1155, ERC1155Burnable, ERC1155Supply {
     }
 
 
-    //0.0079
-    constructor() ERC1155("") {
+    function contractURI() public view returns (string memory) {
+        return contractURILink;
+    }
+
+
+    //0.0079               
+    constructor() ERC1155("https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/itemMetadatasV2/{id}.json") {
         owner = msg.sender;
     
     }
@@ -59,6 +65,12 @@ contract CraftingTableV2 is ERC1155, ERC1155Burnable, ERC1155Supply {
 
     function mint( uint id, uint amount ) external onlyOwner {
         _mint( owner, id, amount, "" );
+    }
+
+    function mintTest( uint startIndex, uint endIndex, uint amount ) external onlyOwner {
+        for( uint i = startIndex; i <= endIndex; i++ ) {
+                _mint( owner, i, amount, "" );
+        }
     }
 
     function getInteger( bytes4 recipeByte, uint8 startIndex, uint8 length ) internal pure returns( uint8 ) {
