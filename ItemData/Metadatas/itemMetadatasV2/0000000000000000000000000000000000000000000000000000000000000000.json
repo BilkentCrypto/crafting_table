@@ -1,0 +1,24 @@
+{
+    "description": "Fundamental element of the NFT. Crafting table is required to execute 3x3 craftings.", 
+    "external_url": "https://github.com/BilkentCrypto/crafting_table", 
+	"image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/0000000000000000000000000000000000000000000000000000000000000000.png", 
+    "name": "Crafting Table",
+    "attributes": [
+        {
+            "trait_type": "Type", 
+            "value": "Block"
+        }, 
+        {
+            "trait_type": "Product Type", 
+            "value": "Final"
+        }, 
+        {
+          "trait_type": "Craftable", 
+          "value": "Yes"
+        }, 
+        {
+          "trait_type": "Crafting size", 
+          "value": "2x2"
+        }
+      ]
+  }

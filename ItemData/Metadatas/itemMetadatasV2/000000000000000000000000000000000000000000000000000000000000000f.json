@@ -1,0 +1,24 @@
+{
+    "description": "Wow. It is very valuable. I can give 1000 ETH for this.", 
+    "external_url": "https://github.com/BilkentCrypto/crafting_table", 
+    "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/000000000000000000000000000000000000000000000000000000000000000f.png",
+    "name": "Diamond",
+    "attributes": [
+      {
+        "trait_type": "Type", 
+        "value": "Item"
+    }, 
+        {
+            "trait_type": "Product Type", 
+            "value": "Genesis"
+        }, 
+        {
+          "trait_type": "Craftable", 
+          "value": "No"
+        }, 
+        {
+          "trait_type": "Crafting size", 
+          "value": "Not craftable"
+        }
+      ]
+  }

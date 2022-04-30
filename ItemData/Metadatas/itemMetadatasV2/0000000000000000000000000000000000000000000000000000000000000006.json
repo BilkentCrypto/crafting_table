@@ -1,0 +1,24 @@
+{
+    "description": "Good for storage. But here is blockchain. It can be good for storage but storing is bad in blockchain :(.", 
+    "external_url": "https://github.com/BilkentCrypto/crafting_table", 
+    "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/0000000000000000000000000000000000000000000000000000000000000006.png",
+    "name": "Chest",
+    "attributes": [
+      {
+        "trait_type": "Type", 
+        "value": "Block"
+      }, 
+        {
+            "trait_type": "Product Type", 
+            "value": "Final"
+        }, 
+        {
+          "trait_type": "Craftable", 
+          "value": "Yes"
+        }, 
+        {
+          "trait_type": "Crafting size", 
+          "value": "3x3"
+        }
+      ]
+  }
