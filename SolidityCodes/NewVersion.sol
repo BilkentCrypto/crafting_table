@@ -36,6 +36,8 @@ contract Deneme is ERC1155, ERC1155Burnable, ERC1155Supply {
     }
 
     function constantTest() external {
+        //bir de hepsini tek satırda yapmayı dene ve gas karşılaştır
+        //constant array var mı?
     console.log("1");
         Recipe[30] memory recipes;
 console.log("2");
