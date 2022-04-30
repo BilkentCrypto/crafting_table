@@ -27,15 +27,17 @@ public class FileRenamer {
     }
     public static void main( String[] args ) {
         final int LAST_FILE_INDEX = 24;
-        final String FILES_PATH = System.getProperty("user.dir") + "/ItemData/Metadatas/itemMetadatas/{id}.json";
+        final String FILES_PATH = System.getProperty("user.dir") + "/ItemData/Metadatas/images/{id}";
+        final String OLD_TYPE = ".png";
+        final String NEW_TYPE = ".png";
         //System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
         for( int i = 0; i <= LAST_FILE_INDEX; i++ ) {
-            String currentPath = FILES_PATH.replace("{id}", Integer.toString(i) );
+            String currentPath = FILES_PATH.replace("{id}", Integer.toString(i) ) + OLD_TYPE;
             String newId;
             newId = Integer.toHexString(i);
             newId = fillWithZeros( newId , 64, Direction.LEFT);
-            String newPath = FILES_PATH.replace("{id}", newId);
+            String newPath = FILES_PATH.replace("{id}", newId) + NEW_TYPE;
 
             Path source = Paths.get( currentPath );
             Path target = Paths.get( newPath );
