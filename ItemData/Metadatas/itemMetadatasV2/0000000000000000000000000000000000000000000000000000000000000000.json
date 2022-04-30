@@ -1,24 +1,24 @@
 {
-	"name": "Asset Name",
-	"description": "Lorem ipsum...",
-	"image": "https:\/\/s3.amazonaws.com\/your-bucket\/images\/{id}.png",
-	"properties": {
-		"simple_property": "example value",
-		"rich_property": {
-			"name": "Name",
-			"value": "123",
-			"display_value": "123 Example Value",
-			"class": "emphasis",
-			"css": {
-				"color": "#ffffff",
-				"font-weight": "bold",
-				"text-decoration": "underline"
-			}
-		},
-		"array_property": {
-			"name": "Name",
-			"value": [1,2,3,4],
-			"class": "emphasis"
-		}
-	}
-}
+    "description": "Fundamental element of the NFT. Crafting table is required to execute 3x3 craftings.", 
+    "external_url": "https://github.com/BilkentCrypto/crafting_table", 
+    "image": "https://raw.githubusercontent.com/BilkentCrypto/crafting_table/Item-Metadatas/ItemData/Metadatas/images/{id}.png", 
+    "name": "Crafting Table",
+    "attributes": [
+        {
+            "trait_type": "Type", 
+            "value": "Block"
+        }, 
+        {
+            "trait_type": "Product Type", 
+            "value": "Final"
+        }, 
+        {
+          "trait_type": "Craftable", 
+          "value": "Yes"
+        }, 
+        {
+          "trait_type": "Crafting size", 
+          "value": "2x2"
+        }
+      ]
+  }
