@@ -1,5 +1,6 @@
-//1 bit isCraftableWith3x3 4 bits produced amount (+1) 2 bit Item object number ( 8 bits total one of them is empty)
+//1bit isCraftable 1 bit isCraftableWith3x3 4 bits produced amount (+1) 2 bit Item object number ( 8 bits total one of them is empty)
 //3 item bytes
+//total 4 bytes 8hex  32 bits
 //Item: 5 bits indexNo ( -1 in java +1 in solidity) 3 bits amount
 //Therefore, each index is 4 bytes
 

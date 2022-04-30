@@ -26,6 +26,7 @@
 24 apple
 
 (meals can be added if user do not eat he can die after a while maybe)
+(or mining with pickaxe with using meal energy) +
 (mobs can be added)
 (can it be used merkle tree???)
 (chest idea is not efficent array required to store user's NFTs)

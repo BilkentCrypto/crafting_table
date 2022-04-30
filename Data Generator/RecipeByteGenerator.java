@@ -23,7 +23,7 @@ public class RecipeByteGenerator {
         String result = "";
 
         while( number != 0 ) {
-            result += number % 2;
+            result = (number % 2) + result;
             number /= 2;
         }
 
@@ -74,11 +74,14 @@ public class RecipeByteGenerator {
     public static void main( String[] args ) throws FileNotFoundException {
         String bytesString = "";
         final int MERGE_EACH = 64;
-        final String TEXT_FILE_NAME = "Recipes.txt";
+        final String TEXT_FILE_NAME = "Data Generator/Recipes.txt";
         System.out.println("Started...");
         File textFile = new File( TEXT_FILE_NAME );
         Scanner input = new Scanner( textFile );
         String hexCode = "";
+        
+
+        System.out.println( convertToBits(2, 2) );
 
         while( input.hasNext() ) {
             String bits = "";
@@ -95,15 +98,17 @@ public class RecipeByteGenerator {
                     bits += convertToBits( itemNumber, 2 ); // required item number
                     for( int i = 0; i < itemNumber; i++ ) {
                         bits += convertToBits( input.nextInt(), 5 ); // item index
-                        bits += convertToBits( input.nextInt(), 3 ); // item amount
+                        bits += convertToBits( input.nextInt() - 1, 3 ); // item amount
                     }
-                    bits = fillWithZeros( bits , 8 * 4, Direction.RIGHT);
-                    //System.out.println(bits);
-                    hexCode += convertTo4BytesHex(bits);
                 }
                 else {
                     bits += "0";
                 }
+
+                bits = fillWithZeros( bits , 8 * 4, Direction.RIGHT);
+                System.out.println(bits);
+                hexCode += convertTo4BytesHex(bits);
+
             } else {
                 input.nextLine();
             }
