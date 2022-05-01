@@ -24,6 +24,7 @@
 22 iron pickaxe (tool to mine ores and stone has durability)
 23 diamond pickaxe (tool to mine ores and stone has durability)
 24 apple
+25 cobblestone
 
 (meals can be added if user do not eat he can die after a while maybe)
 (or mining with pickaxe with using meal energy) +

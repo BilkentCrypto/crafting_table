@@ -17,12 +17,12 @@ contract CraftingTableV2 is ERC1155, ERC1155Burnable, ERC1155Supply {
         first byte [isCraftable(bool)(1 bit), isCraftableWithoutCraftingTable(bool)(1bit), amountToProduce(4 bit)(with value of minus 1 so its range is not 0-15 it is 1-16), itemNumber(2bit)]
         next 3 bytes are Item( id(5 bit), amount(3 bit)(minus 1, 1-9 range)]  
 
-        Part 1: 0xc113000000000000cd080000cd110000ce501800816f00008117000000000000
-        Part 2: 0x000000008a1518000000000082c08f0000000000000000000000000000000000
-        Part 3: 0x0000000000000000000000008219120082196a0082198a008219820082197a00
+    Part 1: 0xc113000000000000cd080000cd110000ce50180081cf00008117000000000000
+    Part 2: 0x000000008a1518000000000082c08f0000000000000000000000000000000000
+    Part 3: 0x0000000000000000000000008219120082196a0082198a008219820082197a00
     */
 
-    bytes32 constant recipes1 = 0xc113000000000000cd080000cd110000ce501800816f00008117000000000000;
+    bytes32 constant recipes1 = 0xc113000000000000cd080000cd110000ce50180081cf00008117000000000000;
     bytes32 constant recipes2 = 0x000000008a1518000000000082c08f0000000000000000000000000000000000;
     bytes32 constant recipes3 = 0x0000000000000000000000008219120082196a0082198a008219820082197a00;
     bytes4 constant TRUE_BYTE = 0x00000001;
@@ -64,12 +64,12 @@ contract CraftingTableV2 is ERC1155, ERC1155Burnable, ERC1155Supply {
     }
 
     function mint( uint id, uint amount ) external onlyOwner {
-        _mint( owner, id, amount, "" );
+        _mint( msg.sender, id, amount, "" );
     }
 
     function mintTest( uint startIndex, uint endIndex, uint amount ) external onlyOwner {
         for( uint i = startIndex; i <= endIndex; i++ ) {
-                _mint( owner, i, amount, "" );
+                _mint( msg.sender, i, amount, "" );
         }
     }
 
@@ -130,7 +130,7 @@ contract CraftingTableV2 is ERC1155, ERC1155Burnable, ERC1155Supply {
 
         for( uint8 i = 0; i < recipe.itemNumber; i++ ) {
             Item memory currentItem = recipe.requiredItems[i];
-            //require( balanceOf( msgSender, currentItem.id ) >= currentItem.amount * repeat ); //not enough required items
+            require( balanceOf( msgSender, currentItem.id ) >= currentItem.amount * repeat ); //not enough required items
             _burn( msgSender, currentItem.id, currentItem.amount * repeat );
         }
 

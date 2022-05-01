@@ -74,9 +74,9 @@ public class RecipeByteGenerator {
     public static void main( String[] args ) throws FileNotFoundException {
         String bytesString = "";
         final int MERGE_EACH = 64;
-        final String TEXT_FILE_NAME = "Data Generator/Recipes.txt";
+        final String TEXT_FILE_NAME = "/DataGenerator/Recipes.txt";
         System.out.println("Started...");
-        File textFile = new File( TEXT_FILE_NAME );
+        File textFile = new File( System.getProperty("user.dir") + TEXT_FILE_NAME );
         Scanner input = new Scanner( textFile );
         String hexCode = "";
         
