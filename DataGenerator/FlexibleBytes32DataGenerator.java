@@ -76,44 +76,109 @@ public class FlexibleBytes32DataGenerator {
         return texts;
     }
 
+    public static String reverseString( String text ) {
+        String newText = "";
+        for( int i = 0; i < text.length(); i++ ) {
+            newText = text.charAt( i ) + newText;
+        }
+        return newText;
+    }
+
+    public static int[] convertToIntArray( ArrayList<Integer> list ) {
+        int[] array = new int[ list.size() ];
+        for( int i = 0; i < list.size(); i++ ) {
+            array[i] = list.get( i );
+        }
+        return array;
+    }
+
+    public static long executeSpecialOperations( long value, String operations ) {
+        Scanner operationScan = new Scanner( operations );
+        long newValue = value;
+
+        while( operationScan.hasNext() ) {
+            String operation = operationScan.next();
+            long valueToOperate = operationScan.nextLong();
+
+            if( operation.equals( "+" ) ) {
+                newValue = newValue + valueToOperate;
+            } else if( operation.equals( "-" ) ) {
+                newValue = newValue - valueToOperate;
+            } else if( operation.equals( "*" ) ) {
+                newValue = newValue * valueToOperate;
+            } else if( operation.equals( "/" ) ) {
+                newValue = newValue / valueToOperate;
+            }
+        }
+
+        operationScan.close();
+        return newValue;
+    }
+    
+    public static int sumArray( int[] numbers ) {
+        int sum = 0;
+        for( int number : numbers ) {
+            sum += number;
+        }
+        return sum;
+    }
+
     public static String generateHexCode( int[] bitLengths, String[] specialOperations, Scanner fileScan ) {
         String hexCode;
         BigInteger value = BigInteger.ZERO;
         BigInteger multiplier = BigInteger.ONE;
+        BigInteger previousMultiplier;
 
         while( fileScan.hasNext() ) {
-        
+            previousMultiplier = multiplier;
             String currentLine;
             do {
                 currentLine = fileScan.nextLine();        
             } while( currentLine.startsWith("//") || currentLine.isEmpty() );
-        
+            
             Scanner lineScan = new Scanner( currentLine );
-            for( int i = 0; i < bitLengths.length; i++ ) {
-                if( bitLengths[i] == 1 && lineScan.hasNextBoolean() ) {
-
+            for( int i = 0; i < bitLengths.length && lineScan.hasNext(); i++ ) {
+                int currentBitLength = bitLengths[i];
+                
+                if( currentBitLength == 1 && lineScan.hasNextBoolean() ) {
+                    if( lineScan.nextBoolean() == true ) {
+                        value = value.add( multiplier );
+                    }
                 } else {
-                    int currentInt;
-                    currentInt = fileScan.nextInt();
+                    long currentInt;
+                    long valueToAdd;
+                    currentInt = lineScan.nextLong();
+                    if( specialOperations[i] != null ) {
+                        valueToAdd = executeSpecialOperations( currentInt, specialOperations[i] );
+                    } else {
+                        valueToAdd = currentInt;
+                    }
+
+                    value = value.add( BigInteger.valueOf( valueToAdd ).multiply( multiplier ) );
                 }
+
+                multiplier = multiplier.multiply( BigInteger.valueOf( currentBitLength ) );
                 
             }
+            lineScan.close();
 
+            int totalBitLength = sumArray( bitLengths );
+            multiplier = previousMultiplier.multiply( BigInteger.TWO.pow( totalBitLength ) );
 
     }
-
         hexCode = value.toString( 16 );
+        hexCode = reverseString( hexCode );
         return hexCode;
     }
 
 
     public static void main( String[] args ) throws FileNotFoundException {
-        String bytesString = "";
+        String hexCode;
         final int MERGE_EACH = 64;
-        final String TEXT_FILE_NAME = "Data Generator/Recipes.txt";
+        final String TEXT_FILE_NAME = System.getProperty("user.dir") + "/DataGenerator/Recipes.txt";
         File textFile = new File( TEXT_FILE_NAME );
-        Scanner fileInput = new Scanner( System.getProperty("user.dir")  + textFile );
-        String hexCode = "";
+        Scanner fileScan = new Scanner( textFile );
+        String hexCodes[];
 
         System.out.println("Enter your data structure as bits. Enter to end (new line).");
         System.out.println("Example: 1 5 3 2 7");
@@ -121,9 +186,10 @@ public class FlexibleBytes32DataGenerator {
         ArrayList<Integer> bitLengths = new ArrayList<Integer>();
         String line = userInput.nextLine();
         Scanner lineScan = new Scanner( line );
-        while( lineScan.hasNextInt() ) {
+        while( lineScan.hasNextLong() ) {
             bitLengths.add( lineScan.nextInt() );
         }
+        lineScan.close();
 
         String[] specialOperations = new String[ bitLengths.size() ];
 
@@ -133,22 +199,51 @@ public class FlexibleBytes32DataGenerator {
                 Menu:
                 1 - Start
                 2 - Add special operation to an index
-                (index and operation with spaces) 
-                (no math priority, order is priority)
-                Example: - 5 + 3 / 4 * 2
+                3 - List bit lengths (with special operations)
                 Choice: """);
         int userChoice = userInput.nextInt();
         //give error or error message if minus or exceeded length comes
         //method bool olup successful döndürebilir
         if( userChoice == 1 ) {
-            //hexCode = generateHexCode( bitLengths.toArray(), specialOperations, fileInput );
+            int[] bitLengthsArray = convertToIntArray( bitLengths );
+            hexCode = generateHexCode( bitLengthsArray, specialOperations, fileScan );
+            hexCodes = mergeTextParts( hexCode , MERGE_EACH);
+            System.out.println("Hex code:\n" + "0x" + hexCode);
+            System.out.println("Hex code with parts seperated by " + MERGE_EACH + ":");
+            for(int i = 0; i < hexCodes.length; i++) {
+                System.out.println( hexCodes[i] );
+            }
         } else if( userChoice == 2 ) {
-            int index;
+            System.out.println("""
+                (index and operation with spaces) (first one is index) 
+                (no math priority, order is priority)
+                Example: 0 2 3
+                - 5 + 3 / 4 * 2
+                    """);
+            System.out.println("Enter indexes to add operations:");
+            ArrayList<Integer> indexes = new ArrayList<Integer>();
             userInput.nextLine();
             line = userInput.nextLine();
             lineScan = new Scanner( line );
-            index = lineScan.nextInt();
-            specialOperations[ index ] = lineScan.nextLine();
+            while( lineScan.hasNextInt() ) {
+                indexes.add( lineScan.nextInt() );
+            }
+            lineScan.close();
+            System.out.println("Enter operation:");
+            line = userInput.nextLine();
+            lineScan = new Scanner( line );
+            String operation = lineScan.nextLine();
+            lineScan.close(); 
+            for( int index : indexes ) {
+                specialOperations[ index ] = operation;
+            }
+            
+        } else if( userChoice == 3 ) {
+            System.out.printf("%10s %10s %25s\n", "Index", "Bit Length", "Special Operations" ); 
+            
+            for( int i = 0; i < bitLengths.size(); i++ ) {
+                System.out.printf( "%10d %10d %25s\n", i, bitLengths.get( i ), specialOperations[i] );
+            }
         }
 
         }
